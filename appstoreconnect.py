@@ -56,7 +56,7 @@ def get(url):
 def post(url, body):
     rs = requests.post(url, headers=header, json=body)
 
-    if rs.status_code != 200:
+    if rs.status_code != 201:
         print(rs.status_code)
         print(url)
     return rs
