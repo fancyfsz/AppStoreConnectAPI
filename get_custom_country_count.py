@@ -3,7 +3,7 @@ from appstoreconnect import createASCToken, get, app_id
 import sys
 
 
-def get_custom_country_count(iap_id):
+def getCustomCountryCount(iap_id):
     url = f'https://api.appstoreconnect.apple.com/v1/inAppPurchasePriceSchedules/{iap_id}/manualPrices'
     response = get(url)
 
@@ -17,6 +17,6 @@ def get_custom_country_count(iap_id):
         return 0
 
 
-iap_id = sys.argv[1]
-custom_country_count = get_custom_country_count(iap_id)
-print(f'inAppPurchase {iap_id} set {custom_country_count} custom countries')
+# iap_id = sys.argv[1]
+# custom_country_count = get_custom_country_count(iap_id)
+# print(f'inAppPurchase {iap_id} set {custom_country_count} custom countries')
