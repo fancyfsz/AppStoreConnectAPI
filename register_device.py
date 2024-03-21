@@ -2,6 +2,7 @@
 from appstoreconnect import createASCToken, get, post
 import sys
 
+
 def registerDevice(udid, name):
     url = 'https://api.appstoreconnect.apple.com/v1/devices'
     body = {
@@ -16,10 +17,14 @@ def registerDevice(udid, name):
     }
 
     response = post(url, body)
-    if response.status_code == 201:
+    status_code = response.status_code
+    if status_code == 201:
         print(f'Register {name} success.')
     else:
-        print(f'Register {name} failed.')
+        if status_code == 409:
+            print(f'{name} Already Registered')
+        else:
+            print(f'Register {name} failed.')
 
 
 # Unique Device Identifier
