@@ -52,7 +52,8 @@ def get(url):
         total=3,  # 总共重试次数（包括第一次请求）
         backoff_factor=0.5,  # 重试间隔时间的因子（指数退避算法）
         status_forcelist=[500, 502, 503, 504],  # 遇到这些 HTTP 状态码时进行重试
-        method_whitelist=["GET"]
+        # method_whitelist=["GET"]
+        allowed_methods=["GET"]
     )
 
     # 创建一个会话并将重试策略应用于该会话
@@ -75,7 +76,8 @@ def post(url, body):
         total=3,  # 总共重试次数（包括第一次请求）
         backoff_factor=0.5,  # 重试间隔时间的因子（指数退避算法）
         status_forcelist=[500, 502, 503, 504],  # 遇到这些 HTTP 状态码时进行重试
-        method_whitelist=["POST"]
+        # method_whitelist=["POST"]
+        allowed_methods=["POST"]
     )
 
     # 创建一个会话并将重试策略应用于该会话
