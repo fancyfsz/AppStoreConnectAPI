@@ -27,7 +27,7 @@ def get_beta_testers_in_group(group_id):
 
         if testers_response.status_code == 200:
             testers = testers_response.json().get('data', [])
-            write_to_csv(testers, group_data, group_name)
+            write_to_csv(testers, group_name)
         else:
             print(
                 f'Error fetching testers: {testers_response.status_code}, {testers_response.text}')
@@ -35,14 +35,9 @@ def get_beta_testers_in_group(group_id):
         print(f'Error: {response.status_code}, {response.text}')
 
 
-def write_to_csv(testers, group_data, group_name):
+def write_to_csv(testers, group_name):
     # CSV 文件名
     csv_file = f'beta_group_{group_name}_testers.csv'
-
-    # 提取 Beta 组的额外信息
-    group_attributes = group_data.get('attributes', {})
-    created_date = group_attributes.get('createdDate', '')
-    public_link = group_attributes.get('publicLink', '')
 
     # 提取数据并写入 CSV
     with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
