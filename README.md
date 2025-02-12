@@ -9,7 +9,7 @@ Python Packages in Need
 
 `PyJWT`
 
-
+`cryptography`
 
 Intall them on macOS
 
@@ -19,4 +19,8 @@ pip3 install requests --break-system-packages
 
 ```shell
 pip3 install PyJWT --break-system-packages
+```
+
+```shell
+pip3 install cryptography --break-system-packages
 ```
